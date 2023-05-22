@@ -36,7 +36,7 @@ jobs:
         id: TestCode
         run: npm run test
       - name: Upload test report
-        if: steps.TestCode.outcome == 'failure' # conditionnal
+        if: failure() && steps.TestCode.outcome == 'failure' # conditionnal
         uses: actions/upload-artifact@v3
         with:
           name: test-report
