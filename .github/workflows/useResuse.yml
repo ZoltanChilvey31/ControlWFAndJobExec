@@ -69,6 +69,8 @@ jobs:
   deploy:
     needs: build
     uses: ./.github/workflows/reusable.yml #path from root
+    with:
+      artifact-name: dist-files
   report:
     needs: [lint, deploy] # not only deploy but all previous jobs of deploy
     if: failure()
